@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="coin"
+            type="com.example.cryptocurrencyapp.data.TrendCoinsModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coin_item_layout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:tag="@{coin.name}"
+        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <ImageView
+            android:id="@+id/favIcon"
+            android:layout_margin="12dp"
+            android:src="@drawable/like2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/coinIcon"
+            android:layout_margin="12dp"
+            android:src="@drawable/bitcoin"
+            app:layout_constraintStart_toEndOf="@id/favIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="65dp"
+            android:layout_height="65dp" />
+
+        <TextView
+            android:id="@+id/coinName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextStyle"
+            android:text="@{coin.symbol}"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintStart_toEndOf="@+id/coinIcon"
+            app:layout_constraintTop_toTopOf="@+id/coinIcon"
+            app:layout_constraintBottom_toBottomOf="@+id/coinIcon"
+            android:textColor="@color/black"
+            tools:text="Bitcoin" />
+
+        <TextView
+            android:id="@+id/coinValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextStyle"
+            android:text="@{Integer.toString(coin.market_cap_rank)}"
+            android:layout_marginRight="25dp"
+            android:textColor="@color/black"
+            tools:text="30.222"
+            app:layout_constraintTop_toTopOf="@+id/coinIcon"
+            app:layout_constraintEnd_toStartOf="@+id/rightIcon" />
+
+        <TextView
+            android:id="@+id/coinPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(coin.score)}"
+            android:textSize="22dp"
+            android:layout_marginRight="25dp"
+            android:textColor="@color/silver"
+            tools:text="$30.222"
+            app:layout_constraintTop_toBottomOf="@+id/coinValue"
+            app:layout_constraintEnd_toStartOf="@+id/rightIcon" />
+
+        <ImageView
+            android:id="@+id/rightIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/next"
+            app:layout_constraintBottom_toBottomOf="@+id/coinIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/coinIcon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

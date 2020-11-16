@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/repoListFragment">
+
+    <fragment
+        android:id="@+id/ListFragment"
+        android:name="com.example.cryptocurrencyapp.ListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_list">
+
+        <action
+            android:id="@+id/actionDetail"
+            app:destination="@id/DetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.example.cryptocurrencyapp.DetailFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_detail">
+
+        <action
+            android:id="@+id/actionList"
+            app:destination="@id/ListFragment" />
+        <argument
+            android:name="coins"
+            app:argType="com.example.cryptocurrencyapp.data.TrendCoinsModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoListFragment"
+        android:name="com.example.cryptocurrencyapp.view.RepoListFragment"
+        android:label="RepoListFragment" >
+        <action
+            android:id="@+id/actionRepoDetail"
+            app:destination="@id/repoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repoDetailFragment"
+        android:name="com.example.cryptocurrencyapp.view.RepoDetailFragment"
+        android:label="RepoDetailFragment">
+        <argument
+            android:name="username" />
+    </fragment>
+</navigation>
